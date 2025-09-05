@@ -6,7 +6,7 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #2d2d30;
+    background: #000000;
     color: #ffffff;
     overflow-x: hidden;
 }
@@ -19,13 +19,13 @@ body {
 
 /* Header Styles */
 .header {
-    background: #2d2d30;
+    background: #000000;
     padding: 20px 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header .container {
@@ -44,13 +44,15 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #2d2d30;
+    background: #1a1a1a;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 
-        5px 5px 10px rgba(0, 0, 0, 0.5),
-        -5px -5px 10px rgba(80, 80, 85, 0.15);
+        8px 8px 16px rgba(0, 0, 0, 0.9),
+        -8px -8px 16px rgba(255, 255, 255, 0.05),
+        inset 2px 2px 4px rgba(255, 255, 255, 0.03),
+        inset -2px -2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .logo-letter {
@@ -64,6 +66,7 @@ body {
     font-weight: 300;
     letter-spacing: 2px;
     color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 /* Navigation */
@@ -84,12 +87,20 @@ body {
     color: #cccccc;
     font-size: 16px;
     font-weight: 400;
-    transition: color 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
 }
 
 .nav-link:hover,
 .nav-link.active {
     color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 0, 0, 0.3),
+        inset -2px -2px 4px rgba(255, 255, 255, 0.04);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 .mobile-menu {
@@ -136,14 +147,17 @@ body {
     width: 180px;
     height: 180px;
     border-radius: 50%;
-    background: #2d2d30;
+    background: #1a1a1a;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 
-        15px 15px 30px rgba(0, 0, 0, 0.5),
-        -15px -15px 30px rgba(80, 80, 85, 0.15);
-    transition: all 0.3s ease;
+        20px 20px 40px rgba(0, 0, 0, 0.9),
+        -20px -20px 40px rgba(255, 255, 255, 0.08),
+        inset 5px 5px 10px rgba(255, 255, 255, 0.05),
+        inset -5px -5px 10px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hero-logo-circle:hover {
@@ -154,6 +168,7 @@ body {
     font-size: 70px;
     font-weight: bold;
     color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
 }
 
 .hero-title {
@@ -162,34 +177,63 @@ body {
     letter-spacing: 6px;
     color: #ffffff;
     margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .enter-btn {
     padding: 15px 60px;
-    background: #2d2d30;
+    background: linear-gradient(145deg, #1f1f1f, #151515);
     color: #ffffff;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 50px;
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 2px;
     cursor: pointer;
     box-shadow: 
-        8px 8px 16px rgba(0, 0, 0, 0.5),
-        -8px -8px 16px rgba(80, 80, 85, 0.15);
-    transition: all 0.3s ease;
+        12px 12px 24px rgba(0, 0, 0, 0.8),
+        -12px -12px 24px rgba(255, 255, 255, 0.06),
+        inset 2px 2px 4px rgba(255, 255, 255, 0.08),
+        inset -2px -2px 4px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.enter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s;
+}
+
+.enter-btn:hover::before {
+    left: 100%;
 }
 
 .enter-btn:hover {
+    transform: translateY(-2px);
     box-shadow: 
-        5px 5px 10px rgba(0, 0, 0, 0.5),
-        -5px -5px 10px rgba(80, 80, 85, 0.15);
+        16px 16px 32px rgba(0, 0, 0, 0.9),
+        -16px -16px 32px rgba(255, 255, 255, 0.08),
+        inset 3px 3px 6px rgba(255, 255, 255, 0.1),
+        inset -3px -3px 6px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(255, 255, 255, 0.02);
+    background: linear-gradient(145deg, #222222, #181818);
 }
 
 .enter-btn:active {
+    transform: translateY(1px);
     box-shadow: 
-        inset 5px 5px 10px rgba(0, 0, 0, 0.5),
-        inset -5px -5px 10px rgba(80, 80, 85, 0.15);
+        inset 8px 8px 16px rgba(0, 0, 0, 0.8),
+        inset -8px -8px 16px rgba(255, 255, 255, 0.03),
+        4px 4px 8px rgba(0, 0, 0, 0.4),
+        -4px -4px 8px rgba(255, 255, 255, 0.04);
+    background: linear-gradient(145deg, #141414, #1a1a1a);
 }
 
 /* Action Buttons */
@@ -208,9 +252,9 @@ body {
 
 .action-btn {
     padding: 20px 40px;
-    background: #2d2d30;
+    background: linear-gradient(145deg, #1f1f1f, #141414);
     color: #ffffff;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 60px;
     font-size: 18px;
     font-weight: 400;
@@ -218,21 +262,53 @@ body {
     cursor: pointer;
     min-width: 150px;
     box-shadow: 
-        8px 8px 16px rgba(0, 0, 0, 0.5),
-        -8px -8px 16px rgba(80, 80, 85, 0.15);
-    transition: all 0.3s ease;
+        15px 15px 30px rgba(0, 0, 0, 0.85),
+        -15px -15px 30px rgba(255, 255, 255, 0.07),
+        inset 3px 3px 6px rgba(255, 255, 255, 0.08),
+        inset -3px -3px 6px rgba(0, 0, 0, 0.6);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.action-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+    border-radius: 50%;
+}
+
+.action-btn:hover::after {
+    width: 300px;
+    height: 300px;
 }
 
 .action-btn:hover {
+    transform: translateY(-3px);
     box-shadow: 
-        5px 5px 10px rgba(0, 0, 0, 0.5),
-        -5px -5px 10px rgba(80, 80, 85, 0.15);
+        20px 20px 40px rgba(0, 0, 0, 0.9),
+        -20px -20px 40px rgba(255, 255, 255, 0.09),
+        inset 4px 4px 8px rgba(255, 255, 255, 0.1),
+        inset -4px -4px 8px rgba(0, 0, 0, 0.7),
+        0 0 25px rgba(255, 255, 255, 0.03);
+    background: linear-gradient(145deg, #242424, #171717);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .action-btn:active {
+    transform: translateY(1px);
     box-shadow: 
-        inset 5px 5px 10px rgba(0, 0, 0, 0.5),
-        inset -5px -5px 10px rgba(80, 80, 85, 0.15);
+        inset 10px 10px 20px rgba(0, 0, 0, 0.8),
+        inset -10px -10px 20px rgba(255, 255, 255, 0.04),
+        5px 5px 10px rgba(0, 0, 0, 0.5),
+        -5px -5px 10px rgba(255, 255, 255, 0.05);
+    background: linear-gradient(145deg, #131313, #1c1c1c);
 }
 
 /* Responsive Design */
@@ -314,8 +390,13 @@ body {
 
 
 .action-btn.clicked {
-    transform: translateY(4px);
-    box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.3), inset -6px -6px 12px rgba(60, 60, 65, 0.1);
+    transform: translateY(2px);
+    box-shadow: 
+        inset 12px 12px 24px rgba(0, 0, 0, 0.9),
+        inset -12px -12px 24px rgba(255, 255, 255, 0.03),
+        3px 3px 6px rgba(0, 0, 0, 0.6),
+        -3px -3px 6px rgba(255, 255, 255, 0.04);
+    background: linear-gradient(145deg, #111111, #1d1d1d);
 }
 
 .nav-list.open {
@@ -324,10 +405,15 @@ body {
     position: absolute;
     top: 70px;
     right: 20px;
-    background: #2d2d30;
+    background: #1a1a1a;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), -10px -10px 20px rgba(60, 60, 65, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        15px 15px 30px rgba(0, 0, 0, 0.9),
+        -15px -15px 30px rgba(255, 255, 255, 0.06),
+        inset 2px 2px 4px rgba(255, 255, 255, 0.05),
+        inset -2px -2px 4px rgba(0, 0, 0, 0.4);
     gap: 15px;
     min-width: 150px;
 }
