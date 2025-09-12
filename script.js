@@ -2,7 +2,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenu = document.querySelector('.mobile-menu');
   const navList = document.querySelector('.nav-list');
   const header = document.querySelector('.header');
-  const enterBtn = document.querySelector('.enter-btn');
+
+  // Word Carousel functionality
+  const carouselWords = document.querySelectorAll('.carousel-word');
+  const leftArrow = document.querySelector('.carousel-arrow-left');
+  const rightArrow = document.querySelector('.carousel-arrow-right');
+  let currentWordIndex = 0;
+
+  function showWord(index) {
+    carouselWords.forEach((word, i) => {
+      word.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextWord() {
+    currentWordIndex = (currentWordIndex + 1) % carouselWords.length;
+    showWord(currentWordIndex);
+  }
+
+  function prevWord() {
+    currentWordIndex = (currentWordIndex - 1 + carouselWords.length) % carouselWords.length;
+    showWord(currentWordIndex);
+  }
+
+  leftArrow?.addEventListener('click', prevWord);
+  rightArrow?.addEventListener('click', nextWord);
+
+  // Optional: Auto-advance every 4 seconds
+  setInterval(nextWord, 4000);
 
   // Mobile menu: simple toggle, no backdrop animations
   mobileMenu?.addEventListener('click', () => {
@@ -27,11 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.querySelector(link.getAttribute('href'));
       target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
-  });
-
-  // ENTER button: just scroll down
-  enterBtn?.addEventListener('click', () => {
-    document.querySelector('.actions')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
   // Header tint on scroll (kept subtle)

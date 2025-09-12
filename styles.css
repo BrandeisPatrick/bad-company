@@ -360,21 +360,31 @@ code, pre {
 /* Hero Section */
 .hero {
   max-width: 1000px;
-  margin: 10vh auto 0;
+  margin: 0 auto;
   text-align: center;
   padding: 0 var(--space-2xl);
   position: relative;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-4xl);
+  justify-content: space-between;
+  width: 100%;
+  height: 85vh;
+  padding: var(--space-3xl) 0;
 }
 
 .hero-logo {
-  margin-bottom: var(--space-lg);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-logo-circle {
@@ -450,18 +460,15 @@ code, pre {
 
 .hero-title {
   color: var(--text-primary);
-  font-size: clamp(36px, 8vw, 72px);
+  font-size: clamp(28px, 5vw, 48px);
   letter-spacing: 0.15em;
   font-weight: var(--font-extrabold);
-  margin: var(--space-lg) 0 var(--space-2xl);
+  margin: 0;
   text-shadow: 
     2px 2px 8px rgba(0, 0, 0, 0.6),
-    0 0 30px rgba(96, 165, 250, 0.2);
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-blue) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+    0 0 30px rgba(255, 255, 255, 0.1);
   position: relative;
+  flex-shrink: 0;
 }
 
 /* Buttons */
@@ -679,8 +686,13 @@ code, pre {
   }
   
   .hero {
-    margin-top: 6vh;
     padding: 0 var(--space-lg);
+    min-height: calc(100vh - 60px);
+  }
+  
+  .hero-content {
+    height: 60vh;
+    padding: var(--space-3xl) 0;
   }
   
   .hero-logo-circle {
@@ -690,6 +702,26 @@ code, pre {
   
   .hero-logo-letter {
     font-size: 80px;
+  }
+  
+  .word-carousel {
+    gap: var(--space-3xl);
+    min-height: 40vh;
+    width: 85vw;
+  }
+  
+  .carousel-word-container {
+    min-width: 45vw;
+    height: 120px;
+  }
+  
+  .carousel-word {
+    font-size: clamp(35px, 8vw, 80px);
+  }
+  
+  .carousel-arrow {
+    font-size: 70px;
+    padding: 0 var(--space-lg);
   }
   
   .hero-title {
@@ -729,6 +761,26 @@ code, pre {
   
   .hero-logo-letter {
     font-size: 64px;
+  }
+  
+  .word-carousel {
+    gap: var(--space-2xl);
+    min-height: 35vh;
+    width: 90vw;
+  }
+  
+  .carousel-word-container {
+    min-width: 50vw;
+    height: 80px;
+  }
+  
+  .carousel-word {
+    font-size: clamp(28px, 7vw, 50px);
+  }
+  
+  .carousel-arrow {
+    font-size: 50px;
+    padding: 0 var(--space-md);
   }
   
   .enter-btn {
@@ -811,4 +863,70 @@ code, pre {
   --accent-red: #8a8a8a;
   --accent-blue: #8a8a8a;
   --accent-purple: #8a8a8a;
+}
+
+/* Word Carousel Styles */
+.word-carousel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5xl);
+  margin: 0 auto;
+  position: relative;
+  min-height: 45vh;
+  justify-content: center;
+  width: 85vw;
+  max-width: 1200px;
+}
+
+.carousel-word-container {
+  position: relative;
+  flex: 1;
+  min-width: 50vw;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.carousel-word {
+  position: absolute;
+  font-size: clamp(50px, 8vw, 110px);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  text-align: center;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all var(--transition-normal);
+  text-shadow: 
+    3px 3px 6px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.08em;
+}
+
+.carousel-word.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-arrow {
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  font-size: 120px;
+  font-weight: var(--font-normal);
+  cursor: pointer;
+  transition: color var(--transition-normal), opacity var(--transition-normal);
+  padding: 0 var(--space-xl);
+  opacity: 0.6;
+}
+
+.carousel-arrow:hover {
+  color: var(--text-primary);
+  opacity: 1;
+}
+
+.carousel-arrow:active {
+  opacity: 0.8;
 }
