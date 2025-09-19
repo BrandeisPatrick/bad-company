@@ -186,6 +186,7 @@ code, pre {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 76px;
   padding: var(--space-lg) var(--space-xl);
 }
 
@@ -371,10 +372,10 @@ code, pre {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: var(--space-4xl);
   width: 100%;
-  height: 85vh;
-  padding: var(--space-3xl) 0;
+  padding: var(--space-4xl) 0;
 }
 
 .hero-logo {
@@ -603,11 +604,11 @@ code, pre {
   top: calc(100% + var(--space-sm));
   right: var(--space-xl);
   background: var(--gradient-primary);
-  padding: var(--space-xl);
+  padding: var(--space-2xl);
   border-radius: var(--radius-lg);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: var(--shadow-lg-out);
-  gap: var(--space-md);
+  gap: var(--space-2xl);
   min-width: 180px;
   backdrop-filter: var(--blur-md);
   -webkit-backdrop-filter: var(--blur-md);
@@ -683,15 +684,14 @@ code, pre {
   }
 
   .hero {
-    padding: 0 var(--space-md);
-    min-height: calc(100vh - 80px);
+    padding: var(--space-2xl) var(--space-md) var(--space-4xl);
+    min-height: auto;
   }
 
   .hero-content {
-    height: auto;
-    min-height: calc(100vh - 120px);
-    padding: var(--space-xl) 0;
-    justify-content: center;
+    min-height: auto;
+    padding: var(--space-2xl) 0 var(--space-3xl);
+    gap: var(--space-3xl);
   }
 
   .hero-title {
@@ -701,36 +701,42 @@ code, pre {
   }
 
   .word-carousel {
-    gap: var(--space-md);
-    min-height: 30vh;
-    width: 100vw;
-    max-width: none;
-    padding: 0 var(--space-sm);
-    justify-content: space-between;
+    padding: 0;
+    width: 100%;
+    max-width: 480px;
+    min-height: unset;
+    gap: var(--space-lg);
+    justify-content: center;
   }
 
   .carousel-word-container {
-    min-width: 50vw;
-    height: 80px;
+    min-width: 0;
+    width: 100%;
+    height: clamp(68px, 20vw, 110px);
     flex: 1;
   }
 
   .carousel-word {
-    font-size: clamp(28px, 8vw, 50px);
+    font-size: clamp(22px, 6.5vw, 36px);
+    letter-spacing: 0.045em;
   }
 
   .carousel-arrow {
-    font-size: 40px;
-    padding: var(--space-sm);
-    flex-shrink: 0;
-    min-width: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: clamp(28px, 12vw, 44px);
+    width: clamp(40px, 12vw, 52px);
+    height: clamp(40px, 12vw, 52px);
+    border-radius: var(--radius-full);
+    background: var(--gradient-secondary);
+    box-shadow: var(--shadow-sm-out);
+    color: var(--text-primary);
+    opacity: 0.9;
   }
 
   .nav-list.open {
+    left: var(--space-md);
     right: var(--space-md);
+    min-width: unset;
+    width: auto;
   }
 }
 
@@ -744,41 +750,52 @@ code, pre {
   }
 
   .hero {
-    padding: 0 var(--space-sm);
+    padding: var(--space-2xl) var(--space-sm) var(--space-3xl);
+  }
+
+  .hero-content {
+    gap: var(--space-2xl);
   }
 
   .hero-title {
-    font-size: clamp(20px, 5vw, 32px);
-    letter-spacing: 0.06em;
+    font-size: clamp(16px, 4.2vw, 24px);
+    letter-spacing: 0.035em;
     margin-bottom: var(--space-2xl);
   }
 
   .word-carousel {
-    gap: var(--space-sm);
-    min-height: 25vh;
-    width: 100vw;
-    padding: 0 var(--space-xs);
-    justify-content: space-between;
+    gap: var(--space-md);
+    width: 100%;
+    max-width: 360px;
+    min-height: unset;
+    padding: 0;
+    justify-content: center;
   }
 
   .carousel-word-container {
-    min-width: 60vw;
-    height: 60px;
+    min-width: 0;
+    height: clamp(56px, 24vw, 90px);
     flex: 1;
   }
 
   .carousel-word {
-    font-size: clamp(22px, 7vw, 40px);
+    font-size: clamp(18px, 8vw, 26px);
+    letter-spacing: 0.035em;
   }
 
   .carousel-arrow {
-    font-size: 36px;
-    padding: var(--space-xs);
-    flex-shrink: 0;
-    min-width: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: clamp(24px, 12vw, 32px);
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-secondary);
+    box-shadow: var(--shadow-sm-out);
+    border-radius: var(--radius-full);
+    opacity: 0.95;
+  }
+
+  .nav-list.open {
+    left: var(--space-sm);
+    right: var(--space-sm);
   }
 
   .logo-circle {
@@ -860,20 +877,21 @@ code, pre {
 .word-carousel {
   display: flex;
   align-items: center;
-  gap: var(--space-5xl);
+  justify-content: center;
+  gap: clamp(var(--space-2xl), 6vw, var(--space-5xl));
   margin: 0 auto;
   position: relative;
-  min-height: 45vh;
-  justify-content: center;
-  width: 85vw;
-  max-width: 1200px;
+  width: min(760px, 90vw);
+  min-height: clamp(220px, 40vh, 340px);
+  padding: 0 var(--space-2xl);
 }
 
 .carousel-word-container {
   position: relative;
   flex: 1;
-  min-width: 50vw;
-  height: 150px;
+  min-width: 0;
+  width: 100%;
+  height: clamp(100px, 18vw, 160px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -882,18 +900,21 @@ code, pre {
 
 .carousel-word {
   position: absolute;
-  font-size: clamp(50px, 8vw, 110px);
+  font-size: clamp(32px, 6vw, 80px);
   font-weight: var(--font-bold);
   color: #f0f0f0;
   text-align: center;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
+  line-height: var(--line-tight);
   opacity: 0;
   transform: translateX(200px);
   transition: all 0.5s ease-out;
   text-shadow:
     3px 3px 6px rgba(0, 0, 0, 0.5),
     0 0 30px rgba(255, 255, 255, 0.1);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
+  padding: 0 var(--space-sm);
 }
 
 .carousel-word.active {
@@ -913,12 +934,16 @@ code, pre {
   background: none;
   border: none;
   color: var(--text-tertiary);
-  font-size: 120px;
+  font-size: clamp(48px, 8vw, 80px);
   font-weight: var(--font-normal);
   cursor: pointer;
   transition: color var(--transition-normal), opacity var(--transition-normal);
-  padding: 0 var(--space-xl);
+  padding: 0;
   opacity: 0.6;
+  display: grid;
+  place-items: center;
+  width: clamp(48px, 9vw, 80px);
+  height: clamp(48px, 9vw, 80px);
 }
 
 .carousel-arrow:hover {
