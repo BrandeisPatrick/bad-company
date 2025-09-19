@@ -28,9 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
   leftArrow?.addEventListener('click', prevWord);
   rightArrow?.addEventListener('click', nextWord);
 
-  // Optional: Auto-advance every 4 seconds
-  setInterval(nextWord, 4000);
-
   // Mobile menu: simple toggle, no backdrop animations
   mobileMenu?.addEventListener('click', () => {
     navList.classList.toggle('open');

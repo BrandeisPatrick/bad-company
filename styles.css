@@ -137,9 +137,6 @@ html {
 body {
   min-height: 100vh;
   background: var(--bg-primary);
-  background-image: 
-    radial-gradient(circle at 25% 25%, rgba(74, 222, 128, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(96, 165, 250, 0.1) 0%, transparent 50%);
   color: var(--text-secondary);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   font-size: var(--font-md);
