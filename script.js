@@ -42,6 +42,29 @@ document.addEventListener('DOMContentLoaded', () => {
   leftArrow?.addEventListener('click', prevWord);
   rightArrow?.addEventListener('click', nextWord);
 
+  // Make carousel words clickable
+  carouselWords.forEach((word) => {
+    word.addEventListener('click', (e) => {
+      e.preventDefault();
+      const wordData = word.getAttribute('data-word');
+
+      // Actions for each word
+      switch(wordData) {
+        case 'blank-space':
+          window.location.href = 'https://www.blankspace.build/';
+          break;
+        case 'billboard':
+          alert('You clicked on "billboard"! This could showcase advertising services.');
+          break;
+        case 'beacon':
+          alert('You clicked on "beacon"! This could highlight guidance or consulting services.');
+          break;
+        default:
+          console.log('Clicked word:', wordData);
+      }
+    });
+  });
+
   // Mobile menu: simple toggle, no backdrop animations
   mobileMenu?.addEventListener('click', () => {
     navList.classList.toggle('open');

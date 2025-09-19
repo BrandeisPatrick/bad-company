@@ -917,6 +917,16 @@ code, pre {
     0 0 30px rgba(255, 255, 255, 0.1);
   letter-spacing: 0.05em;
   padding: 0 var(--space-sm);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.carousel-word:hover {
+  color: var(--accent-blue);
+  text-shadow:
+    3px 3px 6px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(96, 165, 250, 0.3);
+  transform: translateX(0) scale(1.05);
 }
 
 .carousel-word.active {
