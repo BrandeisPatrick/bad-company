@@ -890,7 +890,7 @@ code, pre {
   position: absolute;
   font-size: clamp(50px, 8vw, 110px);
   font-weight: var(--font-bold);
-  color: var(--text-primary);
+  color: #f0f0f0;
   text-align: center;
   white-space: nowrap;
   opacity: 0;
