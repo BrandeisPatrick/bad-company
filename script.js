@@ -9,23 +9,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const rightArrow = document.querySelector('.carousel-arrow-right');
   let currentWordIndex = 0;
 
-  function showWord(index) {
+  function showWord(index, direction = 'right') {
     carouselWords.forEach((word, i) => {
-      word.classList.remove('active');
+      word.classList.remove('active', 'slide-from-left', 'slide-from-right');
       if (i === index) {
-        word.classList.add('active');
+        // Set initial position based on direction
+        if (direction === 'right') {
+          word.classList.add('slide-from-right');
+        } else {
+          word.classList.add('slide-from-left');
+        }
+
+        // Small delay then animate to center
+        setTimeout(() => {
+          word.classList.remove('slide-from-left', 'slide-from-right');
+          word.classList.add('active');
+        }, 50);
       }
     });
   }
 
   function nextWord() {
     currentWordIndex = (currentWordIndex + 1) % carouselWords.length;
-    showWord(currentWordIndex);
+    showWord(currentWordIndex, 'right');
   }
 
   function prevWord() {
     currentWordIndex = (currentWordIndex - 1 + carouselWords.length) % carouselWords.length;
-    showWord(currentWordIndex);
+    showWord(currentWordIndex, 'left');
   }
 
   leftArrow?.addEventListener('click', prevWord);

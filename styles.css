@@ -661,140 +661,134 @@ code, pre {
 /* Responsive Design */
 @media (max-width: 768px) {
   .container {
-    padding: 0 var(--space-lg);
+    padding: 0 var(--space-md);
   }
-  
+
   .header .container {
-    padding: var(--space-lg);
+    padding: var(--space-md);
   }
-  
+
   .nav-list {
     display: none;
     margin-right: 0;
   }
-  
+
   .mobile-menu {
     display: flex;
   }
-  
+
   .company-name {
     font-size: var(--font-md);
     letter-spacing: 0.04em;
   }
-  
+
   .hero {
-    padding: 0 var(--space-lg);
-    min-height: calc(100vh - 60px);
+    padding: 0 var(--space-md);
+    min-height: calc(100vh - 80px);
   }
-  
+
   .hero-content {
-    height: 60vh;
-    padding: var(--space-3xl) 0;
+    height: auto;
+    min-height: calc(100vh - 120px);
+    padding: var(--space-xl) 0;
+    justify-content: center;
   }
-  
-  .hero-logo-circle {
-    width: 200px;
-    height: 200px;
-  }
-  
-  .hero-logo-letter {
-    font-size: 80px;
-  }
-  
-  .word-carousel {
-    gap: var(--space-3xl);
-    min-height: 40vh;
-    width: 85vw;
-  }
-  
-  .carousel-word-container {
-    min-width: 45vw;
-    height: 120px;
-  }
-  
-  .carousel-word {
-    font-size: clamp(35px, 8vw, 80px);
-  }
-  
-  .carousel-arrow {
-    font-size: 70px;
-    padding: 0 var(--space-lg);
-  }
-  
+
   .hero-title {
-    font-size: clamp(28px, 8vw, 48px);
-    letter-spacing: 0.12em;
+    font-size: clamp(24px, 6vw, 36px);
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-3xl);
   }
-  
-  .action-buttons {
-    flex-direction: column;
-    gap: var(--space-xl);
+
+  .word-carousel {
+    gap: var(--space-md);
+    min-height: 30vh;
+    width: 100vw;
+    max-width: none;
+    padding: 0 var(--space-sm);
+    justify-content: space-between;
+  }
+
+  .carousel-word-container {
+    min-width: 50vw;
+    height: 80px;
+    flex: 1;
+  }
+
+  .carousel-word {
+    font-size: clamp(28px, 8vw, 50px);
+  }
+
+  .carousel-arrow {
+    font-size: 40px;
+    padding: var(--space-sm);
+    flex-shrink: 0;
+    min-width: 60px;
+    display: flex;
     align-items: center;
+    justify-content: center;
   }
-  
-  .action-btn {
-    width: 240px;
-  }
-  
-  .enter-btn {
-    min-width: 160px;
-    padding: var(--space-lg) var(--space-2xl);
-  }
-  
+
   .nav-list.open {
-    right: var(--space-lg);
+    right: var(--space-md);
   }
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-sm);
+  }
+
+  .header .container {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .hero {
+    padding: 0 var(--space-sm);
+  }
+
   .hero-title {
-    letter-spacing: 0.08em;
+    font-size: clamp(20px, 5vw, 32px);
+    letter-spacing: 0.06em;
+    margin-bottom: var(--space-2xl);
   }
-  
-  .hero-logo-circle {
-    width: 160px;
-    height: 160px;
-  }
-  
-  .hero-logo-letter {
-    font-size: 64px;
-  }
-  
+
   .word-carousel {
-    gap: var(--space-2xl);
-    min-height: 35vh;
-    width: 90vw;
+    gap: var(--space-sm);
+    min-height: 25vh;
+    width: 100vw;
+    padding: 0 var(--space-xs);
+    justify-content: space-between;
   }
-  
+
   .carousel-word-container {
-    min-width: 50vw;
-    height: 80px;
+    min-width: 60vw;
+    height: 60px;
+    flex: 1;
   }
-  
+
   .carousel-word {
-    font-size: clamp(28px, 7vw, 50px);
+    font-size: clamp(22px, 7vw, 40px);
   }
-  
+
   .carousel-arrow {
-    font-size: 50px;
-    padding: 0 var(--space-md);
+    font-size: 36px;
+    padding: var(--space-xs);
+    flex-shrink: 0;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  
-  .enter-btn {
-    padding: var(--space-md) var(--space-xl);
-    font-size: var(--font-sm);
-    min-width: 140px;
-  }
-  
-  .action-btn {
-    width: 200px;
-    padding: var(--space-md) var(--space-xl);
-  }
-  
+
   .logo-circle {
     width: 36px;
     height: 36px;
     font-size: var(--font-md);
+  }
+
+  .company-name {
+    font-size: var(--font-sm);
   }
 }
 
@@ -894,7 +888,7 @@ code, pre {
   text-align: center;
   white-space: nowrap;
   opacity: 0;
-  transform: translateX(100px);
+  transform: translateX(200px);
   transition: all 0.5s ease-out;
   text-shadow:
     3px 3px 6px rgba(0, 0, 0, 0.5),
@@ -905,6 +899,14 @@ code, pre {
 .carousel-word.active {
   opacity: 1;
   transform: translateX(0);
+}
+
+.carousel-word.slide-from-left {
+  transform: translateX(-200px);
+}
+
+.carousel-word.slide-from-right {
+  transform: translateX(200px);
 }
 
 .carousel-arrow {
