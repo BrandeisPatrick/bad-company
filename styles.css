@@ -702,8 +702,7 @@ code, pre {
 
   .word-carousel {
     padding: 0;
-    width: 100%;
-    max-width: 480px;
+    width: min(540px, 100%);
     min-height: unset;
     gap: var(--space-lg);
     justify-content: center;
@@ -712,13 +711,15 @@ code, pre {
   .carousel-word-container {
     min-width: 0;
     width: 100%;
-    height: clamp(68px, 20vw, 110px);
+    height: clamp(68px, 18vw, 120px);
     flex: 1;
   }
 
   .carousel-word {
-    font-size: clamp(22px, 6.5vw, 36px);
+    font-size: clamp(22px, 6vw, 38px);
     letter-spacing: 0.045em;
+    white-space: normal;
+    word-break: break-word;
   }
 
   .carousel-arrow {
@@ -765,8 +766,7 @@ code, pre {
 
   .word-carousel {
     gap: var(--space-md);
-    width: 100%;
-    max-width: 360px;
+    width: min(420px, 100%);
     min-height: unset;
     padding: 0;
     justify-content: center;
@@ -774,13 +774,15 @@ code, pre {
 
   .carousel-word-container {
     min-width: 0;
-    height: clamp(56px, 24vw, 90px);
+    height: clamp(56px, 22vw, 95px);
     flex: 1;
   }
 
   .carousel-word {
-    font-size: clamp(18px, 8vw, 26px);
+    font-size: clamp(18px, 7.5vw, 28px);
     letter-spacing: 0.035em;
+    white-space: normal;
+    word-break: break-word;
   }
 
   .carousel-arrow {
@@ -881,7 +883,7 @@ code, pre {
   gap: clamp(var(--space-2xl), 6vw, var(--space-5xl));
   margin: 0 auto;
   position: relative;
-  width: min(760px, 90vw);
+  width: min(900px, 92vw);
   min-height: clamp(220px, 40vh, 340px);
   padding: 0 var(--space-2xl);
 }
@@ -891,7 +893,7 @@ code, pre {
   flex: 1;
   min-width: 0;
   width: 100%;
-  height: clamp(100px, 18vw, 160px);
+  height: clamp(100px, 16vw, 170px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -900,12 +902,12 @@ code, pre {
 
 .carousel-word {
   position: absolute;
-  font-size: clamp(32px, 6vw, 80px);
+  font-size: clamp(32px, 5.4vw, 88px);
   font-weight: var(--font-bold);
   color: #f0f0f0;
   text-align: center;
-  white-space: normal;
-  word-break: break-word;
+  white-space: nowrap;
+  word-break: normal;
   line-height: var(--line-tight);
   opacity: 0;
   transform: translateX(200px);
