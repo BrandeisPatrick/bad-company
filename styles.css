@@ -894,9 +894,9 @@ code, pre {
   text-align: center;
   white-space: nowrap;
   opacity: 0;
-  transform: translateY(20px);
-  transition: all var(--transition-normal);
-  text-shadow: 
+  transform: translateX(100px);
+  transition: all 0.5s ease-out;
+  text-shadow:
     3px 3px 6px rgba(0, 0, 0, 0.5),
     0 0 30px rgba(255, 255, 255, 0.1);
   letter-spacing: 0.08em;
@@ -904,7 +904,7 @@ code, pre {
 
 .carousel-word.active {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 .carousel-arrow {

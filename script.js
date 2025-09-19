@@ -11,7 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showWord(index) {
     carouselWords.forEach((word, i) => {
-      word.classList.toggle('active', i === index);
+      word.classList.remove('active');
+      if (i === index) {
+        word.classList.add('active');
+      }
     });
   }
 
